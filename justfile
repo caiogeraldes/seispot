@@ -22,3 +22,5 @@ attach:
   arduino-cli board attach -p {{port}} -b {{core}}:{{board}} .
 
 all: pre compile upload
+
+update: compile upload
