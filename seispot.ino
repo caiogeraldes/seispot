@@ -36,14 +36,14 @@ void loop() {
   // Valores mínimos
   // Série 1-3
   int state1 = serie13Switch.getState();
-  long min1 = 0;
+  long min1 = -127;
   if (state1 == HIGH)
     min1 = 0;
   else
     min1 = -127;
   // Série 4-6
   int state2 = serie46Switch.getState();
-  long min2 = 0;
+  long min2 = -127;
   if (state2 == HIGH)
     min2 = 0;
   else
