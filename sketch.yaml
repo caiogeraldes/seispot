@@ -1,2 +1,4 @@
 default_fqbn: arduino:avr:leonardo
 default_port: /dev/ttyACM0
+default_port_config:
+  baudrate: 115200
