@@ -1,9 +1,21 @@
+//
+// Controlador MIDI usando um Arduino, 6 potenciômetros e 2 switches
+//
+// IMPORTANTE: É necessário uma placa com suporte a usb nativo, como
+// o Leonardo, Due, Micro, Zero. Ver:
+// https://docs.arduino.cc/tutorials/generic/midi-device/
+//
+// A maior parte do trabalho é feita pela biblioteca MIDIUSB.
+//
+// Por conveniência, utilizo a biblioteca ezButton.
+//
+
 #include <MIDIUSB.h>
 #include <ezButton.h>
 
 // Switches para as duas séries de 3 potenciômetros
-ezButton serie13Switch(7);
-ezButton serie46Switch(6);
+ezButton serie13Switch(2);
+ezButton serie46Switch(3);
 
 const int potenciometro[6] = {A0, A1, A2, A3, A4, A5};
 
