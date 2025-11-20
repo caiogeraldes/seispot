@@ -1,13 +1,16 @@
+core := "arduino:avr"
+board := "leonardo"
+
 pre:
   arduino-cli core update-index
-  arduino-cli core install arduino:avr
+  arduino-cli core install {{core}}
   arduino-cli lib install MIDIUSB
   arduino-cli lib install ezButton
 
 compile:
-  arduino-cli compile --fqbn arduino:avr:leonardo .
+  arduino-cli compile --fqbn {{core}}:{{board}} .
 
 upload:
-  arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:leonardo .
+  arduino-cli upload -p /dev/ttyACM0 --fqbn {{core}}:{{board}} .
 
 all: pre compile upload
