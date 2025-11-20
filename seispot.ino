@@ -17,15 +17,15 @@
 ezButton serie13Switch(2);
 ezButton serie46Switch(3);
 
-const int potenciometro[6] = {A0, A1, A2, A3, A4, A5};
+const int potenciometro[6] = { A0, A1, A2, A3, A4, A5 };
 
-int valorPotenciometro[6] = {0, 0, 0, 0, 0, 0};
-int valorSaida[6] = {0, 0, 0, 0, 0, 0};
+int valorPotenciometro[6] = { 0, 0, 0, 0, 0, 0 };
+int valorSaida[6] = { 0, 0, 0, 0, 0, 0 };
 
 void setup() {}
 
 void mudancaControle(byte canal, byte controle, byte valor) {
-  midiEventPacket_t evento = {0x0B, 0xB0 | canal, controle, valor};
+  midiEventPacket_t evento = { 0x0B, 0xB0 | canal, controle, valor };
   MidiUSB.sendMIDI(evento);
 }
 
@@ -57,7 +57,7 @@ void loop() {
     } else {
       valorSaida[i] = map(valorPotenciometro[i], 0, 1023, min2, 127);
     }
-    mudancaControle(0, i+1, valorSaida[i]);
+    mudancaControle(0, i + 1, valorSaida[i]);
     MidiUSB.flush();
     delay(2);
   }

@@ -13,4 +13,7 @@ compile:
 upload:
   arduino-cli upload -p /dev/ttyACM0 --fqbn {{core}}:{{board}} .
 
+attach:
+  arduino-cli board attach -p /dev/ttyACM0 -b {{core}}:{{board}} .
+
 all: pre compile upload

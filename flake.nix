@@ -1,5 +1,5 @@
 {
-  description = "A Nix-flake-based C/C++ development environment";
+  description = "A Nix-flake-based Arduino development environment";
 
   inputs.nixpkgs.url =
     "https://flakehub.com/f/NixOS/nixpkgs/0"; # stable Nixpkgs
@@ -14,15 +14,13 @@
         (system: f { pkgs = import inputs.nixpkgs { inherit system; }; });
     in {
       devShells = forEachSupportedSystem ({ pkgs }: {
-        default = pkgs.mkShell.override {
-          # Override stdenv in order to change compiler:
-          stdenv = pkgs.llvmPackages_21.stdenv;
-        } {
+        default = pkgs.mkShell.override { } {
           packages = with pkgs; [
             # C++ tooling
             clang-tools
             clang
             cmake
+            # Arduino
             arduino-cli
           ];
         };
